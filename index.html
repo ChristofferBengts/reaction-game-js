@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+</head>
+
+<body>
+    
+    <h1>Test your reactions!</h1>
+
+    <p>Click on the boxes and circles as quickly as you can!</p>
+
+    <h4 id="result">Your time:</h4>
+
+    <div>
+
+        <p id="text">blablabla</p>
+
+    </div>
+
+
+
+
+
+    <script type="text/javascript">
+
+        // measure reaction time
+
+        // random display time
+
+
+
+        // random shape
+
+        // random position
+
+
+        // Get random color
+        function getRandomColor() {
+            var letters = '0123456789ABCDEF';
+            var color = '#';
+
+            for (let i = 0; i < 6; i++) {
+                 color += letters[Math.floor(Math.random() * 16)];
+            }
+            console.log(color);
+            
+            return color;
+        }
+
+        document.getElementById('text').style.color = getRandomColor();
+        
+        
+
+    </script>
+</body>
+
+</html>
