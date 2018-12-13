@@ -9,6 +9,23 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 
+    <style>
+    
+    #box {
+
+        height: 200px;
+        width: 200px;
+        background-color: blue;
+        position: relative;
+        display: none;
+        /* Random position and radius
+        right: 100px;
+        border-radius: 50%;*/
+
+    }
+
+    </style>
+
 </head>
 
 <body>
@@ -17,32 +34,50 @@
 
     <p>Click on the boxes and circles as quickly as you can!</p>
 
-    <h4 id="result">Your time:</h4>
+    <h4 id="time-taken">Your time: <span id="result"></span></h4>
 
-    <div>
+    <p id="timer">blablabla</p>
 
-        <p id="text">blablabla</p>
-
-    </div>
-
+    <div id="box"></div>
 
 
 
 
     <script type="text/javascript">
 
-        // measure reaction time
+        // measure start time
+        var start = new Date().getTime();
 
-        // random display time
+        
+        function displayBox() {
 
+            // display box    
+            document.getElementById('box').style.display = 'block';
 
+            // update start time
+            start = new Date().getTime();
+            
+        }
+
+        function delayBox() {
+
+            // time before displaying box
+            setTimeout(displayBox, Math.random() * 2000);
+
+        }
+        
+        // delay before initial display
+        delayBox();
 
         // random shape
+
+
 
         // random position
 
 
-        // Get random color
+
+        // random color
         function getRandomColor() {
             var letters = '0123456789ABCDEF';
             var color = '#';
@@ -55,9 +90,32 @@
             return color;
         }
 
-        document.getElementById('text').style.color = getRandomColor();
+        document.getElementById('box').style.color = getRandomColor();
         
+
         
+
+        // event listener for box click
+        document.getElementById('box').addEventListener('click', function () {
+
+            // remove box
+            document.getElementById('box').style.display = 'none';
+
+            // measure end time
+            var end = new Date().getTime();
+
+            // calculate time taken
+            var timeTaken = (end - start) / 1000;
+
+            console.log(timeTaken);
+
+            // display result
+            document.getElementById('result').innerHTML = timeTaken + 's';
+
+            // display new box
+            delayBox();
+
+        })
 
     </script>
 </body>
